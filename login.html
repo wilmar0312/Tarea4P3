@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Login</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="d-flex align-items-center justify-content-center vh-100 bg-light">
+  <div class="card p-4 shadow" style="width: 300px;">
+    <h4 class="text-center mb-3">Iniciar Sesión</h4>
+    <form id="loginForm">
+      <div class="mb-3">
+        <input type="text" id="username" class="form-control" placeholder="Usuario" required>
+      </div>
+      <div class="mb-3">
+        <input type="password" id="password" class="form-control" placeholder="Contraseña" required>
+      </div>
+      <button type="submit" class="btn btn-primary w-100">Entrar</button>
+    </form>
+  </div>
+
+  <script>
+  document.getElementById('loginForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    const user = document.getElementById('username').value;
+    const pass = document.getElementById('password').value;
+
+    // Validación simple (ajusta según tus credenciales reales)
+    if (user === 'admin' && pass === '1234') {
+      localStorage.setItem('auth', 'true');
+      window.location.href = 'crud.html';  // Redirige al CRUD
+    } else {
+      alert('Usuario o contraseña incorrectos');
+    }
+  });
+</script>
+
+</body>
+</html>
